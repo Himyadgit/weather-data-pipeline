@@ -1,0 +1,29 @@
+name: Weather Data Pipeline
+
+on:
+  schedule:
+    - cron: "0 23 * * *"   # runs daily at 6 AM UTC
+  workflow_dispatch:      # manual trigger
+
+jobs:
+  run-weather-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run weather pipeline
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        run: |
+          python Weather_API.py
