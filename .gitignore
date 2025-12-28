@@ -1,9 +1,6 @@
 # Ignore environment variables
 .env
 
-# Ignore local data files
-data/*.csv
-
 # Ignore Python cache
 __pycache__/
 *.pyc
