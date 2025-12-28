@@ -24,6 +24,6 @@ jobs:
 
       - name: Run weather pipeline
         env:
-          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
         run: |
           python Weather_API.py
