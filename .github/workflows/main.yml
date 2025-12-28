@@ -1,13 +1,16 @@
-name: Run Weather API Script
+name: Weather Data Pipeline (Scheduled)
 
-on: [push]
+on:
+  schedule:
+    - cron: "0 6 * * *"   # Daily at 06:00 UTC
+  workflow_dispatch:      # Manual trigger button
 
 jobs:
-  run-script:
+  run-weather-pipeline:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -16,9 +19,22 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install requests pandas
+        run: |
+          pip install requests pandas
 
-      - name: Run script
+      - name: Run Weather API script
         env:
           OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
-        run: python Weather1.py
+        run: |
+          python Weather1.py
+
+      - name: Commit updated CSV
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          
+          git add data/Weather.csv
+          git commit -m "Auto-update weather data" || echo "No changes to commit"
+          git push
+
+        
