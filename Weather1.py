@@ -47,58 +47,13 @@ for city in cities:
 weather_df = pd.DataFrame(records)
 
 # Ensure Data folder exists
-# os.makedirs("Data", exist_ok=True)
+os.makedirs("data", exist_ok=True)
 
 # Save to CSV
-output_path = r"C:\Users\yhima\Desktop\power bi test\weather_pipeline\data\Weather.csv"
+output_path = "data/Weather.csv"
+#output_path = r"C:\Users\yhima\Desktop\power bi test\weather_pipeline\data\Weather.csv"
 weather_df.to_csv(output_path, index=False)
 
 print("✅ Weather data fetched and saved successfully")
-
-
-# %%
-# weather_df.to_excel(r"C:\Users\yhima\Desktop\power bi test\Python_test\Python\temperature_city2.xlsx",index =False)
-# print("data saved in system")
-
-# %%
-# avg_temp = weather_df["temperature"].mean()
-# avg_temp
-
-# %%
-# hottest_city = weather_df.loc[weather_df["temperature"].idxmax(), "city"]
-# hottest_city
-
-# %%
-# weather_count = weather_df["weather"].value_counts()
-# weather_count
-
-# %%
-# print("Average Temp:", avg_temp)
-# print("Hottest City:", hottest_city)
-# print(weather_count)
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
-# %%
-
 
 
