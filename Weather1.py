@@ -3,6 +3,9 @@ import requests
 import pandas as pd
 import os
 from datetime import datetime
+import pytz
+
+ist = pytz.timezone("Asia/Kolkata")
 
 # Read API key from environment variable
 API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
@@ -38,7 +41,7 @@ for city in cities:
             "humidity": data["main"]["humidity"],
             "weather": data["weather"][0]["main"],
             "wind_speed": data["wind"]["speed"],
-            "timestamp": datetime.now()
+            "timestamp": datetime.now(ist)
         })
     else:
         print(f"❌ Failed for {city}: {response.status_code}")
@@ -55,5 +58,6 @@ output_path = "data/Weather.csv"
 weather_df.to_csv(output_path, index=False)
 
 print("✅ Weather data fetched and saved successfully")
+
 
 
