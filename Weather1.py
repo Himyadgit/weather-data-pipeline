@@ -41,7 +41,7 @@ for city in cities:
             "humidity": data["main"]["humidity"],
             "weather": data["weather"][0]["main"],
             "wind_speed": data["wind"]["speed"],
-            "timestamp": datetime.now(ist)
+            "timestamp": datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S")
         })
     else:
         print(f"❌ Failed for {city}: {response.status_code}")
@@ -58,6 +58,7 @@ output_path = "data/Weather.csv"
 weather_df.to_csv(output_path, index=False)
 
 print("✅ Weather data fetched and saved successfully")
+
 
 
 
