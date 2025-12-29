@@ -19,8 +19,8 @@ jobs:
         with:
           python-version: "3.10"
 
-      - run: pip install requests pandas
-
+      - run: pip install requests pandas pytz
+             
       - name: Run weather script
         env:
           OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
