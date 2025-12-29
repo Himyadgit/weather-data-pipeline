@@ -28,12 +28,15 @@ jobs:
         run: |
           python Weather1.py
 
-      - name: Commit updated CSV
+      - name: Commit CSV back to repo
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          
-          git add data/Weather.csv
+      
+          echo "Listing files before commit:"
+          ls -R
+      
+          git add .
           git commit -m "Auto-update weather data" || echo "No changes to commit"
           git push
 
