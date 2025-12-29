@@ -24,7 +24,7 @@ jobs:
       - name: Run weather script
         env:
           OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
-        run: python Weather_API.py
+        run: python Weather1.py
 
       - name: Commit CSV back to repo
         run: |
