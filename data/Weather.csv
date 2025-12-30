@@ -1,6 +1,6 @@
 city,temperature,humidity,weather,wind_speed,timestamp
-Delhi,13.05,88,Fog,1.54,2025-12-30 12:04:58
-Mumbai,27.99,42,Smoke,2.06,2025-12-30 12:04:58
-Bangalore,24.74,62,Haze,2.06,2025-12-30 12:04:58
-Chennai,27.8,69,Mist,3.6,2025-12-30 12:04:58
-Kolkata,17.97,63,Smoke,4.63,2025-12-30 12:04:58
+Delhi,18.05,52,Haze,1.54,2025-12-30 18:16:22
+Mumbai,26.99,47,Smoke,3.6,2025-12-30 18:16:22
+Bangalore,25.22,56,Clouds,2.57,2025-12-30 18:16:22
+Chennai,26.14,76,Mist,4.12,2025-12-30 18:16:22
+Kolkata,15.97,72,Haze,3.6,2025-12-30 18:16:22
